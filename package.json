@@ -12,6 +12,9 @@
   },
   "author": "okonomiyakki",
   "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^22.6.5"
+  },
   "devDependencies": {
     "electron": "^30.0.1",
     "electron-builder": "^24.13.3"
