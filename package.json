@@ -1,0 +1,57 @@
+{
+  "name": "naver-cafe-auto-poster",
+  "version": "1.0.0",
+  "description": "네이버 카페 포스팅 자동화 프로그램",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "deploy:osx": "electron-builder --mac",
+    "deploy:win": "npm run deploy:win32 && npm run deploy:win64",
+    "deploy:win32": "electron-builder --win nsis:ia32",
+    "deploy:win64": "electron-builder --win nsis:x64"
+  },
+  "author": "okonomiyakki",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "productName": "지훈맘",
+    "appId": "com.okonomiyakki.ex.naver-cafe-auto-poster",
+    "asar": true,
+    "mac": {
+      "target": [
+        "default"
+      ]
+    },
+    "dmg": {
+      "title": "지훈맘"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "language": 1042,
+      "shortcutName": "지훈맘",
+      "artifactName": "지훈맘 Installer ${version}.${ext}",
+      "uninstallDisplayName": "지훈맘"
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    }
+  }
+}
